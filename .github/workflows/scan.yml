@@ -25,7 +25,7 @@ jobs:
         working-directory: app  # Ajuste se o pom.xml estiver na raiz ou numa subpasta específica
 
       - name: Veracode Upload And Scan
-        uses: veracode/veracode-upload-and-scan-action@master
+        uses: veracode/veracode-uploadandscan-action@master
         with:
           appname: 'VeraDemo-GitHub'
           createprofile: true
