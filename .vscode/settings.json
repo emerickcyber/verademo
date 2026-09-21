@@ -1,0 +1,5 @@
+{
+    "veracode-scan.SCA Features.policy": true,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "veracode-scan-language-client.trace.server": "verbose"
+}
