@@ -27,10 +27,10 @@ jobs:
       - name: Veracode Upload And Scan
         uses: veracode/veracode-uploadandscan-action@master
         with:
-          appname: 'VeraDemo-GitHub'
+          appname: 'Jonatas Emerick Technical Panel'
           createprofile: true
           filepath: 'app/target/verademo.war' # Ajuste o caminho para onde o .war foi gerado
           vid: ${{ secrets.VERACODE_API_ID }}
           vkey: ${{ secrets.VERACODE_API_KEY }}
           sandboxname: 'Github'
-          createsandbox: true
+          createsandbox: false
