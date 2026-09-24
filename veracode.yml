@@ -111,6 +111,7 @@ actions:
       runs_on:
       packager_image: veracode/scm-packaging:3.0.0
       predependency_command: | 
+        apt-get update;
         apt-get install -y vim
 
   veracode_sca_scan:
