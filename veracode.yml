@@ -1,6 +1,6 @@
 debug: true
 default:
-  runs_on: linux-latest
+  runs_on: ubuntu-latest
 veracode_static_scan:
   push:
     trigger: true
@@ -29,7 +29,7 @@ veracode_static_scan:
   break_build_on_error: false
   error_message: "Veracode static scan faced a problem. Please contact your Veracode administrator for more information."
   # Default policy to be used if a policy isn't already assigned to the application profile.
-  policy: 'Veracode Recommended Medium + SCA'
+  # policy: 'Veracode Recommended Medium + SCA'
   # If the create_code_scanning_alert is set to true, GitHub security code scanning vulnerability alerts will be created for static findings.
   create_code_scanning_alert: false
   # If the create_issue is set to true, GitHub Issues will be created for static findings.
@@ -99,7 +99,7 @@ veracode_iac_secrets_scan:
     commands:
       - "Veracode IaC Scan"
   # (Optional) There is currently no default policy. Use a valid policy with an IaC-specific ruleset.
-  policy: "Veracode Recommended Medium IAC"
+  # policy: "Veracode Recommended Medium IAC"
   
 actions:
   ruby:
