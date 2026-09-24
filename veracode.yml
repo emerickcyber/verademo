@@ -1,6 +1,6 @@
 debug: true
 default:
-  runs_on: ubuntu-latest
+  runs_on: 
 veracode_static_scan:
   push:
     trigger: true
@@ -38,6 +38,7 @@ veracode_static_scan:
   # Syntax to be used - COMMANDS_VALUE [branch: BRANCH_NAME]
   profile: 'Jonatas Emerick Technical Panel'
   sandboxname: 'Github'
+  filepath: 'app/target/verademo.war'
   issues:
     trigger: false
     commands:
@@ -45,7 +46,7 @@ veracode_static_scan:
 
 veracode_sca_scan:
   push:
-    trigger: false
+    trigger: true
     # Specify either branches_to_run or branches_to_exclude
     # Entering both will only execute branches_to_run
     # Leaving them both blank means this will never run
