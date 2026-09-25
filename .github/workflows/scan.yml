@@ -20,9 +20,9 @@ jobs:
           java-version: '11'
           cache: 'maven'
 
-      # 1. Compile and package the binary (e.g., WAR/JAR with debug symbols)
+      # 1. Build specifying the pom.xml in the 'app' directory
       - name: Build Application with Maven
-        run: mvn clean package -DskipTests
+        run: mvn clean package -DskipTests -f app/pom.xml
 
       # 2. Download the official Veracode Pipeline Scan CLI
       - name: Download Veracode Pipeline Scan
@@ -42,14 +42,14 @@ jobs:
           java -jar pipeline-scan.jar \
             --veracode_api_id "${{ secrets.VERACODE_API_ID }}" \
             --veracode_api_key "${{ secrets.VERACODE_API_KEY }}" \
-            --file "target/verademo.war" \
+            --file "app/target/verademo.war" \
             --fail_on_severity "Very High, High" \
             --project_name "${{ github.repository }}" \
             --project_ref "${{ github.ref }}" \
             --json_output_file "results.json" \
             $BASELINE_ARG
 
-      # 4. Upload results as a workflow artifact (runs even if the scan step fails)
+      # 4. Upload results as a workflow artifact
       - name: Upload Scan Results
         if: always()
         uses: actions/upload-artifact@v4
